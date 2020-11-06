@@ -10,18 +10,18 @@ node {
 
     stage('Docker Build') {
 
-         sh '''
-         docker build -t webapp .
-         '''
-       
+        steps {
+         sh 'docker build -t webapp .'
+
+
+       }
   }
 
     stage('Run docker image'){
-        
-         sh '''
-         docker run -d -p 8090:80 webapp
-         '''
-       
+        steps {
+         sh 'docker run -d -p 8090:80 webapp'
+
+       }
 
     }
-    }
+
