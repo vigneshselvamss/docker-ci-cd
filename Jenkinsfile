@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('Docker-Build') {
+        stage('scm') {
             checkout scm
         }
         stage('Docker-Build') {
