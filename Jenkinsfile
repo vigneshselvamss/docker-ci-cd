@@ -1,31 +1,21 @@
-
-node {
-  def app
-
-    stage('Maven Install') {
-
-      checkout scm
-
-      }
-
-    stage('Docker Build') {
-
-        steps {
-         sh '''
-         docker build -t webapp .
-         '''
-
-
-       }
-  }
-
-    stage('Run docker image'){
-        steps {
-         sh '''
-          docker run -d -p 8090:80 webapp
-          '''
-
-       }
-
+pipeline {
+    agent any
+    stages {
+        stage('Docker-Build') {
+            checkout scm
+        }
+      
+    stages {
+        stage('Docker-Build') {
+            steps {
+                sh 'sudo docker build -t webapp:latest .'
+                sh 'sudo docker push vicky12345/webapp:latest'
+            }
+        }
+        stage('Docker run') {
+            steps {
+                sh 'sudo docker run -d -p 8090:80 webapp:latest'
+            }
+        }
     }
 }
