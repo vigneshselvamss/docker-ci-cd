@@ -9,7 +9,6 @@ pipeline {
         stage('Docker-Build') {
             steps {
                 sh 'docker build -t vicky12345/webapp:latest .'
-                sh 'docker push vicky12345/webapp:latest'
             }
         }
         stage('Docker run') {
