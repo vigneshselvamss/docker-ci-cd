@@ -11,7 +11,9 @@ node {
     stage('Docker Build') {
 
         steps {
-         sh 'docker build -t webapp .'
+         sh '''
+         docker build -t webapp .
+         '''
 
 
        }
@@ -19,7 +21,9 @@ node {
 
     stage('Run docker image'){
         steps {
-         sh 'docker run -d -p 8090:80 webapp'
+         sh '''
+          docker run -d -p 8090:80 webapp
+          '''
 
        }
 
