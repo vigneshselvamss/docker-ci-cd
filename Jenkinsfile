@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Docker run') {
             steps {
-                sh 'docker run -d -p 8090:80 webapp:latest'
+                sh 'docker run -d -p 8090:80 vicky12345/webapp:latest'
             }
         }  
     }
