@@ -8,13 +8,13 @@ pipeline {
         }
         stage('Docker-Build') {
             steps {
-                sh 'sudo docker build -t webapp:latest .'
-                sh 'sudo docker push vicky12345/webapp:latest'
+                sh 'docker build -t webapp:latest .'
+                sh 'docker push vicky12345/webapp:latest'
             }
         }
         stage('Docker run') {
             steps {
-                sh 'sudo docker run -d -p 8090:80 webapp:latest'
+                sh 'docker run -d -p 8090:80 webapp:latest'
             }
         }  
     }
