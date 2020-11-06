@@ -4,8 +4,6 @@ pipeline {
         stage('Docker-Build') {
             checkout scm
         }
-      
-    stages {
         stage('Docker-Build') {
             steps {
                 sh 'sudo docker build -t webapp:latest .'
@@ -16,6 +14,6 @@ pipeline {
             steps {
                 sh 'sudo docker run -d -p 8090:80 webapp:latest'
             }
-        }
+        }  
     }
-}
+ }
